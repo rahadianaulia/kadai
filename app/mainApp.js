@@ -106,6 +106,6 @@ main.run(["$rootScope","$window", function($rootScope, $window){
     });
 }]);
 
-main.constant("baseUrl", "http://localhost/cafe/cafeWebApi/index.php");
-main.constant("website", "http://localhost/cafe");
+main.constant("baseUrl", "http://localhost:8080/cafe/cafeWebApi/index.php");
+main.constant("website", "http://localhost:8080/cafe");
 
