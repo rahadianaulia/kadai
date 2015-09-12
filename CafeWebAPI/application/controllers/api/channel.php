@@ -50,7 +50,30 @@ class Channel extends REST_Controller
             $this->response(null,404);
         }
     }
+    function updateChannel_put()
+    {
+        $params = file_get_contents("php://input");
+        $request = json_decode($params);
+        $this->channel_model->id = $request->id_channel;
+        $this->channel_model->namaChannel = $request->nama_channel;
+        $this->channel_model->idKota = $request->id_kota;
+        $this->channel_model->deskripsi = $request->deskripsi;
+        $this->channel_model->user = $request->user;
+        $this->channel_model->password = $request->password;
+        $this->channel_model->alamat = $request->alamat;
+        $this->channel_model->hp = $request->hp;
+        $this->channel_model->email = $request->email;
+        $this->channel_model->logo = $request-> logo;
 
+        $hasil['status'] = $this->channel_model->updateChannel();
+
+        if($hasil['status']){
+            $this->response($hasil,200);
+        }else{
+            $this->response(false, 500);
+        }
+
+    }
     function getKota_get(){
         $this->load->model("Kota_model");
         $data = $this->Kota_model->getAll();

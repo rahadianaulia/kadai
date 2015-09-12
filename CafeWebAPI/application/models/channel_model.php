@@ -40,7 +40,23 @@ promo_channel.pict, promo_channel.content from promo_channel join channel on pro
         $query = $this->db->query($que);
         return $query->result();
     }
-	
+    function updateChannel(){
+
+        $data = array(
+            'nama_channel' => $this->namaChannel,
+            'id_kota' => $this->idKota,
+            'deskripsi' => $this->deskripsi,
+            'user' => $this->user,
+            'password' => $this->password,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
+            'logo' => $this->logo
+        );
+        $this->db->where('id_channel', $this->id);
+        $query = $this->db->update("channel", $data);
+        return $query;
+    }
 	function addCity($namaKota){
 		$que = "insert into kota values(null, '$namaKota')";
 		$query = $this->db->query($que);
