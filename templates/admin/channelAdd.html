@@ -1,0 +1,111 @@
+<!-- page heading start-->
+<!--<div class="page-heading">-->
+    <!--<h3>{{judul}}</h3>-->
+<!--</div>-->
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="panel panel-default" >
+        <div class="panel-heading">
+            {{judul}}
+            <span class="tools pull-right">
+                <a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+                <a href="javascript:;" class="fa fa-times"></a>
+
+            </span>
+        </div>
+        <div class="panel-body" collapse="isCollapsed">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Nama Channel</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Nama Kota</label>
+
+                    <div class="col-sm-4">
+                        <select class="form-control">
+                            <option ng-repeat="kota in channelFactory.dataKota" value="{{kota.id_kota}}">
+                                {{kota.nama_kota}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">User</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Password</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">No. Handphone</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Email</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Logo</label>
+
+                    <div class="col-sm-6">
+                        <img src="images/blog/blog-avatar.jpg" class="img-thumbnail" alt="Logo image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Deskripsi</label>
+
+                    <div class="col-sm-10">
+                        <text-angular ng-model="htmlVariable"></text-angular>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer" collapse="isCollapsed">
+            <ul class="user-states">
+                <li>
+                    <!--<i class="fa fa-heart"></i> 127-->
+                    <button class="btn btn-primary">Simpan</button>
+                    <button class="btn btn-danger">Batal</button>
+                </li>
+                <li>
+                    <!--<i class="fa fa-eye"></i> 853-->
+                </li>
+
+            </ul>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+

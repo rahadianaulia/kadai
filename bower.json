@@ -1,0 +1,25 @@
+{
+  "name": "CafeWEB",
+  "version": "0.0.0",
+  "authors": [
+    "msskylab <msskylab@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-bootstrap": "~0.13.3",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-wysiwyg": "~1.2.4",
+    "ng-ckeditor": "~0.2.1",
+    "textAngular": "~1.4.3",
+    "ng-file-upload-shim": "~7.0.17"
+  }
+}

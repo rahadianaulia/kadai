@@ -1,0 +1,24 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>{{judul}}</h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <button class="btn btn-default" ng-click="test()"> TEST</button>
+
+    <form name="myForm">
+        <img class="button thumbnail-borderless" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" required
+             accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-src="file || 'img/noImageAvailable.jpg'"
+                />
+        <label ng-show="file.$error.minHeight">Gambar terlalu kecil</label>
+        <!--<img ngf-src="file || '../logo_channel/noimage.png'" class="thumbnail-borderless" name="file">-->
+        <button type="submit" ng-click="submit()">submit</button>
+    </form>
+    <input type="date" ng-model="tanggal"><button ng-click="view(tanggal)">view</button>
+</div>
+<!--body wrapper end-->
+
+
+

@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Edit Info Channel
+    </div>
+
+    <div class="panel-body" collapse="isCollapsed">
+        <form class="form-horizontal adminex-form" name="form" ng-submit="simpan(channel)">
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Nama Channel</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="channel.nama_channel" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Kota</label>
+
+                <div class="col-sm-10">
+                    <select ng-model="channel.id_kota" class="form-control" required>
+                        <option ng-repeat="kota in channelFact.getResponse" value="{{kota.id_kota}}">
+                            {{kota.nama_kota}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="channel.alamat" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">No. HP</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="channel.hp" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Email</label>
+
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" ng-model="channel.email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Username</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="channel.user" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Password</label>
+
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" ng-model="channel.password" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Confirm Password</label>
+
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" ng-model="channel.confpassword" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="reset" class="btn btn-default">Cancel</button>
+
+        </form>
+    </div>
+</div>

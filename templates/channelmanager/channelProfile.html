@@ -1,0 +1,146 @@
+<div class="page-heading">
+    <h3>{{judul}}</h3>
+
+</div>
+<div class="wrapper">
+
+<div class="">
+    <a ui-sref="channel.list" class="btn btn-primary">Kembali</a>
+</div>
+
+
+    <br/>
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Channel Logo
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-pencil" ngf-select ngf-pattern="'image/*'"
+                                   accept="image/*" ngf-max-size="20MB" ngf-min-height="100"ng-model="file" name="file"></a>
+                                <a href="javascript:;" ng-show="file" class="fa fa-save" ng-click="saveLogo(objChannel)"></a>
+
+                            </span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="profile-pic text-center">
+                                <img class="button thumbnail-borderless"
+                                     ngf-src="file || '{{website}}/logo_channel/{{objChannel.logo}}'"
+                                     ng-src="{{website}}/logo_channel/{{objChannel.logo}}" >
+                            <!--<img ng-src="logo_channel/{{channel.getResponse[0].logo}}" class="thumbnail">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Info
+                            <span class="tools pull-right">
+
+                                <a href="javascript:;" class="fa fa-pencil" ng-click="editInfo()" ng-show="!infoEditMode"></a>
+                                <a href="javascript:;" class="fa fa-save" ng-click="saveInfo(objChannel)" ng-show="infoEditMode"></a>
+                            </span>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="p-info" ng-show="!infoEditMode">
+                                <li>
+                                    <div class="title">Nama</div>
+                                    <div class="desk">{{objChannel.nama_channel}}</div>
+                                </li>
+                                <!--<li>-->
+                                    <!--<div class="title">ID Kota</div>-->
+                                    <!--{{channel.getResponse[0].id_kota}}-->
+                                    <!--<div class="desk">{{objKota.id_kota}}</div>-->
+                                <!--</li>-->
+                                <li>
+                                    <div class="title">Kota</div>
+
+                                    <div class="desk">{{objChannel.kota.nama_kota}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">User</div>
+                                    <div class="desk">{{objChannel.user}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Alamat</div>
+                                    <div class="desk">{{objChannel.alamat}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">No. HP</div>
+                                    <div class="desk">{{objChannel.hp}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Email</div>
+                                    <div class="desk">{{objChannel.email}}</div>
+                                </li>
+                            </ul>
+                            <ul class="p-info" ng-show="infoEditMode">
+                                <form class="form-inline">
+                                <li>
+                                    <div class="title">Nama</div>
+                                    <input class="form-control" ng-model="objChannel.nama_channel">
+                                </li>
+                                <li>
+                                    <!--{{channel.getResponse[0].id_kota}}-->
+                                    <div class="title">Kota</div>
+
+                                    <!--</select>-->
+                                    <select class="form-control" ng-model="objChannel.kota"
+                                            ng-options="kota as kota.nama_kota for kota in kotas track by kota.id_kota"></select>
+                                    <!--{{objKota.id_kota}}-->
+                                </li>
+                                <li>
+                                    <div class="title">User</div>
+                                    <input class="form-control" ng-model="objChannel.user">
+                                </li>
+                                <li>
+                                    <div class="title">Alamat</div>
+                                    <input class="form-control" ng-model="objChannel.alamat">
+                                </li>
+                                <li>
+                                    <div class="title">No. HP</div>
+                                    <input class="form-control" ng-model="objChannel.hp">
+                                </li>
+                                <li>
+                                    <div class="title">Email</div>
+                                    <input class="form-control" ng-model="objChannel.email">
+                                </li>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Deskripsi
+                    <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-pencil" ng-click="editDeskripsi()" ng-show="!editMode"></a>
+                        <a href="javascript:;" class="fa fa-save" ng-click="saveDeskripsi(objChannel)" ng-show="editMode"></a>
+                    </span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="profile-desk">
+                                <div ng-bind-html="objChannel.deskripsi" ng-show="!editMode"></div>
+                                <text-angular ng-show="editMode" ng-model="objChannel.deskripsi"></text-angular>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

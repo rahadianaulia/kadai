@@ -1,0 +1,114 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>Tambah Channel</h3>
+</div>
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Form Channel
+			<span class="tools pull-right">
+				<a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+			</span>
+        </div>
+
+        <div class="panel-body" collapse="isCollapsed">
+            <form class="form-horizontal adminex-form" name="form">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Nama Channel</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="channel.nama_channel" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Kota</label>
+
+                    <div class="col-sm-10">
+                        <select ng-model="channel.id_kota" class="form-control" required>
+                            <option ng-repeat="kota in kotas.getResponse" value="{{kota.id_kota}}">
+                                {{kota.nama_kota}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="channel.alamat" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">No. HP</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="channel.hp" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Email</label>
+
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" ng-model="channel.email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Username</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="channel.user" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Password</label>
+
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" ng-model="channel.password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Confirm Password</label>
+
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" ng-model="channel.confpassword" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Logo</label>
+
+                    <div class="col-sm-10">
+                            {{channel.logo}}
+                        <img style="width: 150px ; height: 150px" class="thumbnail" ngf-src="file || 'logo_channel/noimage.png'"/>
+                        <div class="progress progress-striped" ng-show="progressPercentage">
+                            <div class="progress-bar " role="progressbar" aria-valuenow="{{progressPercentage}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: progressPercentage + '%'}">
+                                <span class="sr-only">{{progressPercentage}}% Complete</span>
+                            </div>
+                        </div>
+                        <div ng-show="file.$error" class="alert alert-danger col-sm-3"><strong>Error! </strong>Gambar tidak sesuai</div>
+                        <div class="row col-sm-12">
+                            <button type="button" ng-disabled="!file || file.$error || progressPercentage==100" class="btn btn-info" ng-click="saveLogo()">Save</button>
+                            <button type="button" class="button btn btn-default" ngf-select name="file" ng-model="file" ng-click="progressPercentage=0"
+                                    ngf-pattern="'image/*'" required
+                                    accept="image/*" ngf-max-size="20MB" ngf-min-height="100">Change
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
+
+                    <div class="col-sm-10">
+                        <text-angular ng-model="channel.deskripsi"></text-angular>
+                    </div>
+                </div>
+
+                <button ng-click="simpan(channel)" type="submit" class="btn btn-primary">Simpan</button>
+                <button type="reset" class="btn btn-default">Cancel</button>
+
+            </form>
+        </div>
+    </div>
+</div>
