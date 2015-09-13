@@ -18,20 +18,18 @@
                 <thead class="">
                 <tr>
                     <th>User Name</th>
-                    <!--<th>Nama</th>-->
+                    <th>Nama</th>
                     <th>Email</th>
-                    <th>Jekel</th>
-                    <th>Tgl. Lahir</th>
+                    <!--<th>Tgl. Lahir</th>-->
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="user in usermanager.getUsers()">
                     <td>{{user.username}}</td>
-                    <!--<td>{{user.nama}}</td>-->
+                    <td>{{user.nama}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.jenis_kelamin}}</td>
-                    <td>{{user.tanggal_lahir}}</td>
+                    <!--<td>{{user.tanggal_lahir}}</td>-->
                     <td>
                         <i class="btn btn-xs btn-info" ng-click="detail(user.username)">Detail</i>
                         <i class="btn btn-xs btn-danger" >Reset Password</i>
