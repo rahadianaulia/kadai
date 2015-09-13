@@ -26,6 +26,18 @@ class UserInfo extends REST_Controller
 
     }
 
+    function listUser_get()
+    {
+
+        $data = $this->user_model->getUser();
+        if($data){
+            $this->response($data,200);
+        }else{
+            $this->response(null,404);
+        }
+
+    }
+
     function register_post()
     {
         // $username = $this->post('username');

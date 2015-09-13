@@ -19,15 +19,22 @@
 				<thead>
 				<tr>
 					<th>Nama Channel</th>
+					<th>Alamat</th>
 					<th>Kota</th>
+					<th>Email</th>
+					<th>No. HP</th>
 					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr ng-repeat="channel in listChannel">
-					<td><img class="img-thumbnail" width="50px" ng-src="{{website}}/logo_channel/{{channel.logo}}"> {{channel.nama_channel}}</td>
+					<!--<td><img class="img-thumbnail" width="50px" ng-src="{{website}}/logo_channel/{{channel.logo}}"> {{channel.nama_channel}}</td>-->
+					<td>{{channel.nama_channel}}</td>
+					<td>{{channel.alamat}}</td>
 					<td>{{channel.nama_kota}}</td>
-					<td><i class="btn btn-xs btn-warning" ng-click="detail(channel.id_channel)">Profile</i>
+					<td>{{channel.email}}</td>
+					<td>{{channel.hp}}</td>
+					<td><i class="btn btn-xs btn-warning" ng-click="detail(channel.id_channel)">Detail</i>
 						<i class="btn btn-xs btn-danger" ng-click="">Delete</i></td>
 				</tr>
 				</tbody>

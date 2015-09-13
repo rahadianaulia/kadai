@@ -2,10 +2,36 @@ var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","u
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
-        .state("/dashboard", {
+        .state("notfound",{
+            url:"/notfound",
+            templateUrl:"templates/page404.html"
+        })
+        .state("dashboard", {
             url : "/dashboard",
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
+        })
+        .state("usermanager",{
+            url : "/usermanager",
+            templateUrl :"templates/admin/userManager.html",
+            controller : "usermanagerCtrl"
+        })
+        .state("usermanagerdetail",{
+            url : "/usermanager/:username",
+            templateUrl :"templates/admin/userManagerDetail.html",
+            controller : "usermanagerDetailCtrl",
+            resolve : {
+                user : function($stateParams, usermanagerSrv){
+                    usermanagerSrv.getUserByUsername($stateParams.username).then(
+                        function () {
+                            //console.log(usermanagerSrv.getUser());
+                        },
+                        function () {
+                        }
+                    )
+                    return usermanagerSrv.getUser();
+                }
+            }
         })
         .state("channelmanager",{
                 url:"/channelmanager",
