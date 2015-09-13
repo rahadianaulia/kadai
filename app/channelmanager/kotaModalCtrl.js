@@ -11,7 +11,7 @@
 		};
 
 		$scope.simpan = function(kota){
-			kotaSrv.tambahKota().then(function(){
+			kotaSrv.tambahKota({"namakota":kota}).then(function(){
 	                	if (kotaSrv.respon[0].status == "200"){
 	                		toaster.pop("succes", "Success", "Kota berhasil ditambah!");
 	                		clearField();
