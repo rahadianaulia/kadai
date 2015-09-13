@@ -74,7 +74,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/admin/userManager.html",
             controller : "userManagerCtrl"
         })
-		.state("/kota", {
+		.state("kota", {
             url : "/kota",
             templateUrl : "templates/channelmanager/kota.html",
             controller : "kotaCtrl"
