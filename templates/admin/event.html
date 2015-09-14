@@ -1,1 +1,44 @@
-<h1>{{judul}}</h1>
+<!-- page heading start-->
+<div class="page-heading">
+    <h1>{{judul}}</h1>
+</div>
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+    <div><a class="btn btn-success" type="button" ng-click="addEvent()">Tambah Event</a></div><br>
+    <div class="panel panel-default" >
+        <div class="panel-heading">
+            Daftar Event
+			<span class="tools pull-right">
+				<a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+			</span>
+        </div>
+
+        <div class="panel-body" collapse="isCollapsed">
+            <table class="table  table-hover general-table">
+                <thead>
+                <tr>
+                    <th>Nama Event</th>
+                    <th>Deskripsi</th>
+                    <th>Tanggal Event</th>
+                    <th>Tgl. Berkahir</th>
+                    <th>Jum. Point</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="event in events.getEvents()">
+                    <!--<td><img class="img-thumbnail" width="50px" ng-src="{{website}}/logo_channel/{{channel.logo}}"> {{channel.nama_channel}}</td>-->
+                    <td>{{event.nama_event}}</td>
+                    <td>{{event.deskripsi}}</td>
+                    <td>{{event.tgl_upload}}</td>
+                    <td>{{event.akhir_event}}</td>
+                    <td>{{event.jumlah_point}}</td>
+                    <td><i class="btn btn-xs btn-warning" ng-click="detail(channel.id_channel)">Detail</i>
+                        <i class="btn btn-xs btn-danger" ng-click="">Delete</i></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

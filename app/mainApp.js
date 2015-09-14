@@ -31,6 +31,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
                     )
                     return usermanagerSrv.getUser();
                 }
+
             }
         })
         .state("channelmanager",{
