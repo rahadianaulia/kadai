@@ -1,0 +1,123 @@
+<!--<div class="page-heading">-->
+    <!--<h3>{{judul}}</h3>-->
+
+<!--</div>-->
+<div class="wrapper">
+
+    <div class="">
+        <a ui-sref="usermanager" class="btn btn-primary">Kembali</a>
+    </div>
+    <br/>
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <!--<div class="panel-heading">-->
+                            <!--Avatar-->
+                            <!--<span class="tools pull-right">-->
+
+                            <!--</span>-->
+                        <!--</div>-->
+                        <!--Avatar : {{usermanager.getUser().avatar}}-->
+                        <div class="panel-body">
+                            <div class="profile-pic text-center">
+                                <img class="button thumbnail-borderless"
+                                     ng-src="user/{{user[0].avatar}}" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <!--<div class="panel panel-success">-->
+                        <!--&lt;!&ndash;<div class="panel-heading">&ndash;&gt;-->
+                            <!--&lt;!&ndash;User dan Password&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="tools pull-right">&ndash;&gt;-->
+
+                                <!--&lt;!&ndash;&lt;!&ndash;<a href="javascript:;" class="fa fa-repeat"> <span>Reset</span></a>&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;<i class="btn btn-danger">Reset</i>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--<div class="panel-body">-->
+                            <!--<ul class="p-info">-->
+                                <!--<li>-->
+                                    <!--<div class="title">User Name</div>-->
+                                    <!--<div class="desk">{{user[0].username}}</div>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<div class="title">Password</div>-->
+
+                                    <!--<div class="desk" >-->
+                                        <!--<input class="form-control" disabled type="password" value="{{user[0].password}}">-->
+                                    <!--</div>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="title">Reset</div>&ndash;&gt;-->
+
+                                    <!--&lt;!&ndash;<div class="desk" >&ndash;&gt;-->
+                                        <!--&lt;!&ndash;&lt;!&ndash;<input class="form-control" disabled type="password" value="{{user[0].password}}">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<button class="btn btn-danger">Reset Password</button>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+                            <!--</ul>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-success">
+                        <!--<div class="panel-heading">-->
+                            <!--Info-->
+                            <!--<span class="tools pull-right">-->
+
+                            <!--</span>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <ul class="p-info">
+                                <li>
+                                    <div class="title">User Name</div>
+                                    <div class="desk">{{user[0].username}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Nama</div>
+                                    <div class="desk">{{user[0].nama}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Jenis Kelamin</div>
+                                    <div class="desk">{{user[0].jenis_kelamin}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Tgl. Lahir</div>
+                                    <div class="desk">{{user[0].tanggal_lahir}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Email</div>
+                                    <div class="desk">{{user[0].email}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Point</div>
+                                    <div class="desk">{{user[0].point}}</div>
+                                </li>
+                                <li>
+                                    <div class="title">Total Point</div>
+                                    <div class="desk">{{user[0].total_point}}</div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
