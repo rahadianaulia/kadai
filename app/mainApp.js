@@ -88,11 +88,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
                 }
             }
         })
-        .state("/event",{
-            url : "/event",
-            templateUrl : "templates/admin/event.html",
-            controller : "eventCtrl"
-        })
+
         .state("userManager", {
             url : "/userManager",
             templateUrl : "templates/admin/userManager.html",
@@ -132,6 +128,11 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             url : "/admin/promo/add",
             templateUrl : "templates/admin/addPromo.html",
             controller : "addPromoAdminCtrl"
+        })
+        .state("/admin/event",{
+            url : "/admin/event",
+            templateUrl : "templates/admin/event.html",
+            controller : "eventCtrl"
         })
 }]);
 
