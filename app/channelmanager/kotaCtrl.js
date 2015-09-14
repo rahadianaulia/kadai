@@ -13,13 +13,13 @@
 		
 			
 		$scope.showCityForm = function(){
-	            var viewKota = $modal.open({
+	            var viewBarang = $modal.open({
 	                templateUrl:"templates/channelmanager/formKotaModal.html",
 	                controller : "kotaModalCtrl",
 	                backdrop : false
 	            });
 
-            viewKota.result.then( function(){
+	            viewBarang.result.then( function(){
 	                getCities();
 	            }, function(){
 

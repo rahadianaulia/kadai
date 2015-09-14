@@ -2,19 +2,18 @@
 
 <div class="panel panel-primary" >
 		<div class="panel-heading">
-			Tambah Kota
+			Tambah Daftar Kota
 		</div>
 		
 		<div class="panel-body" collapse="isCollapsed">
-			<form class="form-horizontal adminex-form" ng-submit="simpan(kota)">
-
-                <div class="form-group">
+			<form class="form-horizontal adminex-form" ng-submit="simpan(namakota)">
+				<div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Nama Kota</label>
                     <div class="col-sm-10">
-                        <input type="text"  class="form-control" ng-model="kota.namakota" required>
+                        <input type="text"  class="form-control" ng-model="namakota" required>
                     </div>
                 </div>
-
+                
                 <button class="btn btn-primary" type="submit">Simpan</button>
                 <button class="btn btn-default" type="reset" ng-click="cancel()">Cancel</button>
                 

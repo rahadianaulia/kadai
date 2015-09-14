@@ -1,0 +1,45 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>Promo</h3>
+</div>
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+	<div><a class="btn btn-success" type="button" ui-sref="/admin/promo/add">Tambah Promo</a></div><br>
+	<div class="panel panel-default" ng-repeat="item in items">
+        <div class="panel-heading">
+            {{item.nama_promo}}
+			<span class="tools pull-right">
+				<a ng-href="#/admin/promo/edit/{{item.id_promo}}" class="fa fa-pencil"></a>
+				<a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+			</span>
+        </div>
+		
+		<div class="panel-body" collapse="isCollapsed">
+			
+		<div class="row">  
+			<div class="col-md-3">
+				<img class="img-thumbnail full-images" ng-src="{{website}}/promo/{{item.pict}}"><br>
+				<div class="row">
+					<label class="col-md-7">Tanggal Upload</label>
+					<div class="col-md-5">{{item.tgl_upload}}</div>
+				</div>
+				<div class="row">
+					<label class="col-md-7">Awal Promo</label>
+					<div class="col-md-5">{{item.awal_promo}}</div>
+				</div>
+				<div class="row">
+					<label class="col-md-7">Akhir Promo</label>
+					<div class="col-md-5">{{item.akhir_promo}}</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<tabset>
+					<tab heading="Short Description">{{item.short_desc}}</tab>
+					<tab heading="Long Description"><div ng-bind-html="item.content"></div></tab>
+				</tabset>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

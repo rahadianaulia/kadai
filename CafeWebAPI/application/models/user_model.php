@@ -8,11 +8,7 @@ class User_model extends CI_Model{
         $query = $this->db->query($que);
         return $query->result();
     }
-    function getUser(){
-        $que = "select * from user";
-        $query = $this->db->query($que);
-        return $query->result();
-    }
+
     function register ($username, $password, $email, $nama, $jekel, $tgllahir){
         $que = "call sp_register('$username', '$password','$email','$nama','$jekel','$tgllahir')";
         $query = $this->db->query($que);

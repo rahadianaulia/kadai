@@ -2,11 +2,7 @@ var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","u
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
-        .state("notfound",{
-            url:"/notfound",
-            templateUrl:"templates/page404.html"
-        })
-        .state("dashboard", {
+        .state("/dashboard", {
             url : "/dashboard",
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
@@ -34,63 +30,64 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
 
             }
         })
+
         .state("channelmanager",{
                 url:"/channelmanager",
                 abstract : true,
                 template : "<ui-view/>"
-            })
-            .state("channelmanager.kota", {
-                url: "/kota",
-                templateUrl: "templates/channelmanager/kota.html",
-                controller: "kotaCtrl"
-            })
-            .state("channelmanager.channel", {
-                url : "/channel",
-                templateUrl : "templates/channelmanager/channel.html",
-                controller : "channelCtrl"
-            })
-            .state("channelmanager.channel.add", {
-                url: "/channel/add",
-                parent:"channelmanager",
-                templateUrl: "templates/channelmanager/addChannel2.html",
-                controller: "addChannelCtrl",
-                resolve: {
-                    optKota: function (kotaSrv) {
-                        var init = function () {
-                            kotaSrv.getKota().then(function () {
-                            }, function () {
-                            });
-                        };
-                        init();
-                        return kotaSrv.getData();
-                    }
+        })
+        .state("channelmanager.kota", {
+            url: "/kota",
+            templateUrl: "templates/channelmanager/kota.html",
+            controller: "kotaCtrl"
+        })
+        .state("channelmanager.channel", {
+            url : "/channel",
+            templateUrl : "templates/channelmanager/channel.html",
+            controller : "channelCtrl"
+        })
+        .state("channelmanager.channel.add", {
+            url: "/channel/add",
+            parent:"channelmanager",
+            templateUrl: "templates/channelmanager/addChannel2.html",
+            controller: "addChannelCtrl",
+            resolve: {
+                optKota: function (kotaSrv) {
+                    var init = function () {
+                        kotaSrv.getKota().then(function () {
+                        }, function () {
+                        });
+                    };
+                    init();
+                    return kotaSrv.getData();
                 }
+            }
 
-            })
-            .state("channelmanager.channel.detail", {
-                url: "/channel/detail/:idChannel",
-                parent : "channelmanager",
-                templateUrl: "templates/channelmanager/channelDetail.html",
-                controller: "channelProfileCtrl",
-                resolve: {
-                    optKota: function (kotaSrv) {
-                        var init = function () {
-                            kotaSrv.getKota().then(function () {
-                            }, function () {
-                            });
-                        };
-                        init();
-                        return kotaSrv.getData();
-                    },
-                    channel : function(channelSrv, $stateParams){
-                        channelSrv.getChannelById($stateParams.idChannel).then(
-                            function(){
-                            },function(){}
-                        )
-                        return channelSrv.objChannel();
-                    }
+        })
+        .state("channelmanager.channel.detail", {
+            url: "/channel/detail/:idChannel",
+            parent : "channelmanager",
+            templateUrl: "templates/channelmanager/channelDetail.html",
+            controller: "channelProfileCtrl",
+            resolve: {
+                optKota: function (kotaSrv) {
+                    var init = function () {
+                        kotaSrv.getKota().then(function () {
+                        }, function () {
+                        });
+                    };
+                    init();
+                    return kotaSrv.getData();
+                },
+                channel : function(channelSrv, $stateParams){
+                    channelSrv.getChannelById($stateParams.idChannel).then(
+                        function(){
+                        },function(){}
+                    )
+                    return channelSrv.objChannel();
                 }
-            })
+            }
+        })
         .state("/event",{
             url : "/event",
             templateUrl : "templates/admin/event.html",
@@ -101,7 +98,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/admin/userManager.html",
             controller : "userManagerCtrl"
         })
-		.state("kota", {
+		.state("/kota", {
             url : "/kota",
             templateUrl : "templates/channelmanager/kota.html",
             controller : "kotaCtrl"
@@ -120,6 +117,21 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             url : "/admin/chance/edit/:idchance",
             templateUrl : "templates/admin/editChance.html",
             controller : "editChanceCtrl"
+        })
+        .state("/admin/promo", {
+            url : "/admin/promo",
+            templateUrl : "templates/admin/promo.html",
+            controller : "promoAdminCtrl"
+        })
+        .state("/admin/promo/edit", {
+            url : "/admin/promo/edit/:idpromo",
+            templateUrl : "templates/admin/editPromo.html",
+            controller : "editPromoAdminCtrl"
+        })
+        .state("/admin/promo/add", {
+            url : "/admin/promo/add",
+            templateUrl : "templates/admin/addPromo.html",
+            controller : "addPromoAdminCtrl"
         })
 }]);
 

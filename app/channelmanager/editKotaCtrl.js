@@ -1,6 +1,6 @@
 (function(){
     angular.module('mainApp')
-    .controller('editKotaCtrl', function($scope, $modalInstance, kotaSrv, dataKota, toaster){
+    .controller('editKotaCtrl', function($scope, $modalInstance, channelSrv, dataKota, toaster, kotaSrv){
     	$scope.kota = {
     		idKota : dataKota.id_kota,
     		namaKota : dataKota.nama_kota
@@ -11,7 +11,7 @@
 		};
 
 		$scope.updateKota = function(kota){
-            kotaSrv.editKota(kota).
+			kotaSrv.editKota(JSON.stringify(kota)).
 	                then(function(){
 	                	if (kotaSrv.respon[0].status == "200"){
 	                		toaster.pop("succes", "Success", "Kota berhasil di update!");
