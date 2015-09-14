@@ -104,6 +104,11 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/admin/editPromo.html",
             controller : "editPromoAdminCtrl"
         })
+        .state("/admin/promo/add", {
+            url : "/admin/promo/add",
+            templateUrl : "templates/admin/addPromo.html",
+            controller : "addPromoAdminCtrl"
+        })
 }]);
 
 main.run(["$rootScope","$window", function($rootScope, $window){

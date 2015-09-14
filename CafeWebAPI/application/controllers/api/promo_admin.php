@@ -44,6 +44,19 @@ class Promo_admin extends REST_Controller
         }
 	}
 	
+	function addPromo_post(){
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata);
+		$data = $this->promo_admin_model->addPromo($request->namapromo, $request->awalpromo, $request->akhirpromo, $request->pict, $request->content, $request->shortdesc);
+		$hasil = array();
+		if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+	}
+	
 	function uploadPictPromo_post(){
         $path="../promo/";
         if( !is_dir($path) ) {

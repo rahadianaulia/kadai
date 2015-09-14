@@ -24,8 +24,13 @@
           return request(params, baseUrl + "/api/promo_admin/editpromo");
         };
 
+        var addPromo = function(params){
+            return request(params, baseUrl + "/api/promo_admin/addpromo")
+        }
+
         return {
             updatePromo : updatePromo,
+            addPromo : addPromo,
             respon : respon
         }
 

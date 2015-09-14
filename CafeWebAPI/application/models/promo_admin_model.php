@@ -23,6 +23,14 @@ class Promo_admin_model extends CI_Model{
 		$query = $this->db->query($que);
 		return $query->result();
 	}
+	
+	function addPromo($namapromo, $awalpromo, $akhirpromo, $pict, $content, $shortdesc){
+		$content = $this->db->escape_str($content);
+		$shortdesc = $this->db->escape_str($shortdesc);
+		$que = "insert into promo values(null, '$namapromo', curdate(), '$awalpromo', '$akhirpromo', '$pict', '$content', '$shortdesc')";
+		$query = $this->db->query($que);
+		return $this->db->affected_rows();
+	}
     
 }
 ?>
