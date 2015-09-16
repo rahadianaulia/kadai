@@ -26,18 +26,18 @@ class event_model extends CI_Model{
         $this->db->insert("event", $this);
         return $this->db->affected_rows();
     }
-//    function addEvent(){
-//        $que = "insert into event values(null, $this->id_channel, '$this->nama_event', '$this->deskripsi',
-//                curdate(), curdate(), $this->akhir_event, $this->jumlah_point)";
-//        $query = $this->db->query($que);
-////        $this->db->insert("event", $this);
-//        return $this->db->affected_rows();
-//    }
 
     function editEvent(){
         $this->db->where("id_event", $this->id_event);
         $this->db->update("event", $this);
         return $this->db->affected_rows();
+    }
+
+    function deleteEvent(){
+        $this->db->where("id_event", $this->id_event);
+        $this->db->delete("event");
+        return $this->db->affected_rows();
+//        return $this->id_event;
     }
 }
 ?>

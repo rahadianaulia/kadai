@@ -7,8 +7,8 @@
             };
 
             $scope.simpan = function(obj){
-                eventSrv.addEvent(obj).then(function(){
-                    if (eventSrv.trxResponse[0].status == "200"){
+                eventSrv.addEvent(obj).then(function(result){
+                    if (result.status == "200"){
                         toaster.pop("succes", "Success", "Kota berhasil ditambah!");
                         $modalInstance.close();
                     } else{

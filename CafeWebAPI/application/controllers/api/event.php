@@ -50,6 +50,22 @@ class event extends REST_Controller{
         $this->event->jumlah_point = 0;
         $this->response($this->event->editEvent());
     }
+    function deleteEvent_delete(){
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+        $this->event->id_event = $request->id_event;
+
+//        $this->event->id_event = $this->delete("id_event");
+
+        $data = $this->event->deleteEvent();
+        $hasil = array();
+        if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+    }
 }
 
 ?>
