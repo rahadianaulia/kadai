@@ -8,9 +8,10 @@
                 var init = function () {
                     eventSrv.reqEvents().then(
                         function () {
-                            console.log(eventSrv.getEvents());
+                            //console.log(eventSrv.getEvents());
                         },
-                        function () {
+                        function (error) {
+                            console.log(error);
                         }
                     )
                 };
@@ -23,12 +24,12 @@
                         size:"lg",
                         backdrop : false
                     });
-
                     viewAddEvent.result.then( function(){
                         init();
                     }, function(){
 
                     });
+
                 };
 
             }]);
