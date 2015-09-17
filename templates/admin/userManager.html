@@ -1,1 +1,40 @@
-<h1>{{judul}}</h1>
+<div class="page-heading">
+    <h3>{{judul}}</h3>
+</div>
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Daftar User
+            <span class="tools pull-right">
+				<a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+			</span>
+        </div>
+        <div class="panel-body">
+            <table class="table  table-hover general-table">
+                <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <!--<th>Point</th>-->
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in usermanager.getUsers()">
+                    <td>{{user.username}}</td>
+                    <td>{{user.nama}}</td>
+                    <td>{{user.email}}</td>
+                    <!--<td>{{user.point}}</td>-->
+                    <td>
+                        <i class="btn btn-xs btn-info" ng-click="detail(user.username)">Detail</i>
+                        <i class="btn btn-xs btn-danger">Reset Password</i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

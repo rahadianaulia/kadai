@@ -33,5 +33,11 @@ class User_model extends CI_Model{
 		return $query->result();
 	}
 
+    function getUsers(){
+        $que = "select * from user";
+        $query = $this->db->query($que);
+        return $query->result();
+    }
+
 }
 ?>

@@ -7,6 +7,30 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
         })
+        .state("usermanager",{
+            url : "/usermanager",
+            templateUrl :"templates/admin/userManager.html",
+            controller : "usermanagerCtrl"
+        })
+        .state("usermanagerdetail",{
+            url : "/usermanager/:username",
+            templateUrl :"templates/admin/userManagerDetail.html",
+            controller : "usermanagerDetailCtrl",
+            resolve : {
+                user : function($stateParams, usermanagerSrv){
+                    usermanagerSrv.getUserByUsername($stateParams.username).then(
+                        function () {
+                            //console.log(usermanagerSrv.getUser());
+                        },
+                        function () {
+                        }
+                    )
+                    return usermanagerSrv.getUser();
+                }
+
+            }
+        })
+
         .state("channelmanager",{
                 url:"/channelmanager",
                 abstract : true,

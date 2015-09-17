@@ -1,5 +1,5 @@
 <!--<div class="page-heading">-->
-    <!--<h3>{{judul}}</h3>-->
+<!--<h3>{{judul}}</h3>-->
 
 <!--</div>-->
 <div class="wrapper">
@@ -16,55 +16,57 @@
                 <div class="col-sm-12">
                     <div class="panel panel-success">
                         <!--<div class="panel-heading">-->
-                            <!--Avatar-->
-                            <!--<span class="tools pull-right">-->
+                        <!--Avatar-->
+                        <!--<span class="tools pull-right">-->
 
-                            <!--</span>-->
+                        <!--</span>-->
                         <!--</div>-->
                         <!--Avatar : {{usermanager.getUser().avatar}}-->
                         <div class="panel-body">
                             <div class="profile-pic text-center">
                                 <img class="button thumbnail-borderless"
-                                     ng-src="user/{{user[0].avatar}}" >
+                                     ng-src="user/{{user[0].avatar}}">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <!--<div class="panel panel-success">-->
-                        <!--&lt;!&ndash;<div class="panel-heading">&ndash;&gt;-->
-                            <!--&lt;!&ndash;User dan Password&ndash;&gt;-->
-                            <!--&lt;!&ndash;<span class="tools pull-right">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="panel-heading">&ndash;&gt;-->
+                    <!--&lt;!&ndash;User dan Password&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="tools pull-right">&ndash;&gt;-->
 
-                                <!--&lt;!&ndash;&lt;!&ndash;<a href="javascript:;" class="fa fa-repeat"> <span>Reset</span></a>&ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;<i class="btn btn-danger">Reset</i>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</span>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--<div class="panel-body">-->
-                            <!--<ul class="p-info">-->
-                                <!--<li>-->
-                                    <!--<div class="title">User Name</div>-->
-                                    <!--<div class="desk">{{user[0].username}}</div>-->
-                                <!--</li>-->
-                                <!--<li>-->
-                                    <!--<div class="title">Password</div>-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<a href="javascript:;" class="fa fa-repeat"> <span>Reset</span></a>&ndash;&gt;&ndash;&gt;
+                    -->
+                    <!--&lt;!&ndash;<i class="btn btn-danger">Reset</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--<div class="panel-body">-->
+                    <!--<ul class="p-info">-->
+                    <!--<li>-->
+                    <!--<div class="title">User Name</div>-->
+                    <!--<div class="desk">{{user[0].username}}</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<div class="title">Password</div>-->
 
-                                    <!--<div class="desk" >-->
-                                        <!--<input class="form-control" disabled type="password" value="{{user[0].password}}">-->
-                                    <!--</div>-->
-                                <!--</li>-->
-                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<div class="title">Reset</div>&ndash;&gt;-->
+                    <!--<div class="desk" >-->
+                    <!--<input class="form-control" disabled type="password" value="{{user[0].password}}">-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="title">Reset</div>&ndash;&gt;-->
 
-                                    <!--&lt;!&ndash;<div class="desk" >&ndash;&gt;-->
-                                        <!--&lt;!&ndash;&lt;!&ndash;<input class="form-control" disabled type="password" value="{{user[0].password}}">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<button class="btn btn-danger">Reset Password</button>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="desk" >&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<input class="form-control" disabled type="password" value="{{user[
+                    0].password}}">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button class="btn btn-danger">Reset Password</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
 
-                            <!--</ul>-->
+                    <!--</ul>-->
 
-                        <!--</div>-->
+                    <!--</div>-->
                     <!--</div>-->
                 </div>
 
@@ -76,10 +78,10 @@
                 <div class="col-md-12">
                     <div class="panel panel-success">
                         <!--<div class="panel-heading">-->
-                            <!--Info-->
-                            <!--<span class="tools pull-right">-->
+                        <!--Info-->
+                        <!--<span class="tools pull-right">-->
 
-                            <!--</span>-->
+                        <!--</span>-->
                         <!--</div>-->
                         <div class="panel-body">
                             <ul class="p-info">
@@ -113,6 +115,39 @@
                                 </li>
                             </ul>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" ng-click="showPointHistories()">Show Histories</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+
+
+                    <div class="panel" ng-show="pointHistory.getPointHistories().length!=0">
+                        <div class="panel-body">
+                            <table class="table table-hover general-table" >
+                                <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Aktifitas</th>
+                                    <th>Jum. Point</th>
+                                    <th>Channel</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="history in pointHistory.getPointHistories()">
+                                    <td>{{history.date_activity}}</td>
+                                    <td>{{history.activity}}</td>
+                                    <td>{{history.point}}</td>
+                                    <td>{{history.id_channel}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

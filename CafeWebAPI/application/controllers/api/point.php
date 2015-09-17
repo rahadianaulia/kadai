@@ -21,7 +21,7 @@ class Point extends REST_Controller
             $this->response(null,404);
         }
 	}
-	
+
 	function changepoint_post(){
 		$postdata = file_get_contents("php://input");
 		$request = json_decode($postdata);
@@ -36,5 +36,10 @@ class Point extends REST_Controller
 		$this->response($data);
 	}
 
+    function historyPoint_get(){
+        $username = $this->get('username');
+        $data = $this->point_model->historyPoint($username);
+        $this->response($data,200);
+    }
 }
 ?>
