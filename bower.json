@@ -16,10 +16,11 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-bootstrap": "~0.13.3",
+    "angular-strap": "~2.3.2",
     "angular-ui-router": "ui-router#~0.2.15",
     "angular-wysiwyg": "~1.2.4",
     "ng-ckeditor": "~0.2.1",
-    "textAngular": "~1.4.3",
-    "ng-file-upload-shim": "~7.0.17"
+    "ng-file-upload-shim": "~7.0.17",
+    "textAngular": "~1.4.3"
   }
 }

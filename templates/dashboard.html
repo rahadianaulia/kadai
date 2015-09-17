@@ -17,6 +17,26 @@
         <button type="submit" ng-click="submit()">submit</button>
     </form>
     <input type="date" ng-model="tanggal"><button ng-click="view(tanggal)">view</button>
+
+
+    <!--<input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">-->
+    <!--<my-date-picker class="form-control"  ></my-date-picker>-->
+
+{{selectedDate}}
+   <!--<p class="input-group">-->
+       <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt"-->
+              <!--is-open="status.opened" min-date="minDate" max-date="maxDate" show-weeks ="false"-->
+              <!--ng-required="true" close-text="Close" />-->
+       <!--<span class="input-group-btn">-->
+           <!--<button type="button" class="btn btn-default" ng-click="open($event)">-->
+               <!--<i class="fa fa-calendar"></i>-->
+           <!--</button>-->
+
+       <!--</span>-->
+   <!--</p>-->
+    <div class="form-group">
+        <input type="text" class="form-control" date-type="string" model-date-format="yyyyMMdd" autoclose="true"  date-format="dd MMM yyyy" ng-model="selectedDate" name="date" bs-datepicker>
+    </div>
 </div>
 <!--body wrapper end-->
 

@@ -4,9 +4,8 @@
         var response=[];
         var listChannel = [];
         var channel = [];
-        var deferred = $q.defer();
-
         var trxRequest = function(methodeParams, url, httpVerb){
+            var deferred = $q.defer();
             $http({
                 url: url,
                 method: httpVerb,
@@ -24,6 +23,7 @@
             return deferred.promise;
         };
         var getRequest = function( url){
+            var deferred = $q.defer();
             $http({
                 url: url,
                 method: "GET",
@@ -42,6 +42,7 @@
             return getRequest(baseUrl + "/api/channel/getchannel");
         };
         var getChannelById = function(idChannel){
+            var deferred = $q.defer();
             $http({
                 url: baseUrl + "/api/channel/getChannelById?idchannel=" + idChannel,
                 method: "GET",

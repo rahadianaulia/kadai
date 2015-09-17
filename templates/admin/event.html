@@ -5,7 +5,9 @@
 <!-- page heading end-->
 <!--body wrapper start-->
 <div class="wrapper">
-    <div><a class="btn btn-success" type="button" ng-click="addEvent()">Tambah Event</a></div><br>
+    <div>
+        <a class="btn btn-success" type="button" ng-click="addEvent()">Tambah Event</a>
+    </div><br>
     <div class="panel panel-default" >
         <div class="panel-heading">
             Daftar Event
@@ -34,8 +36,8 @@
                     <td>{{event.tgl_upload}}</td>
                     <td>{{event.akhir_event}}</td>
                     <td>{{event.jumlah_point}}</td>
-                    <td><i class="btn btn-xs btn-warning" ng-click="detail(channel.id_channel)">Detail</i>
-                        <i class="btn btn-xs btn-danger" ng-click="">Delete</i></td>
+                    <td><i class="btn btn-xs btn-warning" ng-click="">Detail</i>
+                        <i class="btn btn-xs btn-danger" ng-click="delEvent(event)">Delete</i></td>
                 </tr>
                 </tbody>
             </table>

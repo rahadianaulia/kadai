@@ -1,4 +1,5 @@
-var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","ui.bootstrap","toaster","ngFileUpload"]);
+var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","ui.bootstrap","toaster","ngFileUpload",
+    "mgcrea.ngStrap.datepicker"]);
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
@@ -88,11 +89,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
                 }
             }
         })
-        .state("/event",{
-            url : "/event",
-            templateUrl : "templates/admin/event.html",
-            controller : "eventCtrl"
-        })
+
         .state("userManager", {
             url : "/userManager",
             templateUrl : "templates/admin/userManager.html",
@@ -132,6 +129,11 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             url : "/admin/promo/add",
             templateUrl : "templates/admin/addPromo.html",
             controller : "addPromoAdminCtrl"
+        })
+        .state("/admin/event",{
+            url : "/admin/event",
+            templateUrl : "templates/admin/event.html",
+            controller : "eventCtrl"
         })
 }]);
 
