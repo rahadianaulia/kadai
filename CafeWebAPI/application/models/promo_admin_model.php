@@ -5,7 +5,7 @@ class Promo_admin_model extends CI_Model{
     }
 	
 	function listPromo(){
-		$que = "select * from promo";
+		$que = "select * from promo order by id_promo desc";
         $query = $this->db->query($que);
         return $query->result();
 	}
@@ -28,6 +28,12 @@ class Promo_admin_model extends CI_Model{
 		$content = $this->db->escape_str($content);
 		$shortdesc = $this->db->escape_str($shortdesc);
 		$que = "insert into promo values(null, '$namapromo', curdate(), '$awalpromo', '$akhirpromo', '$pict', '$content', '$shortdesc')";
+		$query = $this->db->query($que);
+		return $this->db->affected_rows();
+	}
+	
+	function deletePromo($idpromo){
+		$que = "delete from promo where id_promo=$idpromo";
 		$query = $this->db->query($que);
 		return $this->db->affected_rows();
 	}

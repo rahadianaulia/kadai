@@ -57,6 +57,18 @@ class Promo_admin extends REST_Controller
         $this->response($hasil);
 	}
 	
+	function deletePromo_get(){
+		$idpromo = $this->get("idpromo");
+		$data = $this->promo_admin_model->deletePromo($idpromo);
+		$hasil = array();
+		if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+	}
+	
 	function uploadPictPromo_post(){
         $path="../promo/";
         if( !is_dir($path) ) {
