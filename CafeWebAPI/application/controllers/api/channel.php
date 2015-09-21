@@ -42,7 +42,7 @@ class Channel extends REST_Controller
     }
 	
 	function getChannelById_get(){
-        $this->channel_model->id = $this->get("idchannel");
+        $this->channel_model->id_channel = $this->get("idchannel");
         $data = $this->channel_model->getChanelById();
         if($data){
             $this->response($data,200);
@@ -51,6 +51,45 @@ class Channel extends REST_Controller
         }
     }
 
+    function updateChannel_put(){
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+        $this->channel_model->id_channel = $request->id_channel;
+        $this->channel_model->nama_channel = $request->nama_channel;
+        $this->channel_model->id_kota = $request->id_kota;
+        $this->channel_model->deskripsi = $request->deskripsi;
+        $this->channel_model->user = $request->user;
+        $this->channel_model->password = $request->password;
+        $this->channel_model->alamat = $request->alamat;
+        $this->channel_model->hp = $request->hp;
+        $this->channel_model->email = $request->email;
+        $this->channel_model->logo = $request->logo;
+
+        $data = $this->channel_model->updateChannel();
+        $hasil = array();
+        if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+
+    }
+
+    function deleteChannel_delete(){
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+        $this->channel_model->id_channel = $request->id_channel;
+//        $this->channel_model->id_channel = $this->delete("id_channel");
+        $data = $this->channel_model->deleteChannel();
+        $hasil = array();
+        if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+    }
     function getKota_get(){
         $this->load->model("Kota_model");
         $data = $this->Kota_model->getAll();

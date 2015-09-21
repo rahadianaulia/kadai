@@ -87,7 +87,8 @@ $config['rest_realm'] = 'REST API';
 |           authorization key
 |
 */
-$config['rest_auth'] = FALSE;
+//$config['rest_auth'] = false;
+$config['rest_auth'] = 'session';
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ $config['rest_auth'] = FALSE;
 | Note: If 'rest_auth' is set to 'session' then change 'auth_source' to the name of the session variable
 |
 */
-$config['auth_source'] = '';
+$config['auth_source'] = "username";
 
 /*
 |--------------------------------------------------------------------------
@@ -125,9 +126,7 @@ $config['auth_library_class'] = '';
 $config['auth_library_function'] = '';
 
 
-$config['auth_override_class_method']['userinfo']['login'] = 'none';
-$config['auth_override_class_method']['userinfo']['register'] = 'none';
-$config['auth_override_class_method']['userinfo']['uploadavatar'] = 'none';
+
 /*
 |--------------------------------------------------------------------------
 | Override auth types for specific class/method
@@ -156,7 +155,10 @@ $config['auth_override_class_method']['userinfo']['uploadavatar'] = 'none';
 
 // ---Uncomment list line for the wildard unit test
 // $config['auth_override_class_method']['wildcard_test_cases']['*'] = 'basic';
-
+$config['auth_override_class_method']['userinfo']['login'] = 'none';
+$config['auth_override_class_method']['userinfo']['register'] = 'none';
+$config['auth_override_class_method']['userinfo']['uploadavatar'] = 'none';
+$config['auth_override_class_method']['webuser']['login'] = 'none';
 /*
 |--------------------------------------------------------------------------
 | REST Login Usernames

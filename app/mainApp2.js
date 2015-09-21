@@ -1,32 +1,24 @@
 var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","ui.bootstrap","toaster","ngFileUpload",
-    "mgcrea.ngStrap.datepicker","ngCookies"]);
+    "mgcrea.ngStrap.datepicker"]);
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise("/main/dashboard");
+    $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
         .state("login",{
             url:"/login",
-            templateUrl:"templates/login.html",
+            templateUrl:"",
             controller:"loginCtrl"
         })
-        .state("main",{
-            url:"/main",
-            abstract: true,
-            templateUrl : "templates/main.html",
-            data:{
-                "roles" : "mitra"
-            }
-        })
-        .state("main.dashboard", {
+        .state("/dashboard", {
             url : "/dashboard",
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
         })
-        .state("main.usermanager",{
+        .state("usermanager",{
             url : "/usermanager",
             templateUrl :"templates/admin/userManager.html",
             controller : "usermanagerCtrl"
         })
-        .state("main.usermanagerdetail",{
+        .state("usermanagerdetail",{
             url : "/usermanager/:username",
             templateUrl :"templates/admin/userManagerDetail.html",
             controller : "usermanagerDetailCtrl",
@@ -44,21 +36,25 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
 
             }
         })
-        .state("main.channelmanager", {
-            url : "/channelmanager",
-            templateUrl : "templates/channelmanager/channel.html",
-            controller : "channelCtrl"
+
+        .state("channelmanager",{
+                url:"/channelmanager",
+                abstract : true,
+                template : "<ui-view/>"
         })
-        .state("main.channelmanager.kota", {
-            url: "/channelmanager/kota",
-            parent:"main",
+        .state("channelmanager.kota", {
+            url: "/kota",
             templateUrl: "templates/channelmanager/kota.html",
             controller: "kotaCtrl"
         })
-
-        .state("main.channelmanager.add", {
-            url: "/channelmanager/add",
-            parent:"main",
+        .state("channelmanager.channel", {
+            url : "/channel",
+            templateUrl : "templates/channelmanager/channel.html",
+            controller : "channelCtrl"
+        })
+        .state("channelmanager.channel.add", {
+            url: "/channel/add",
+            parent:"channelmanager",
             templateUrl: "templates/channelmanager/addChannel2.html",
             controller: "addChannelCtrl",
             resolve: {
@@ -74,9 +70,9 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             }
 
         })
-        .state("main.channelmanager.detail", {
-            url: "/channelmanager/detail/:idChannel",
-            parent : "main",
+        .state("channelmanager.channel.detail", {
+            url: "/channel/detail/:idChannel",
+            parent : "channelmanager",
             templateUrl: "templates/channelmanager/channelDetail.html",
             controller: "channelProfileCtrl",
             resolve: {
@@ -98,71 +94,64 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
                 }
             }
         })
-        .state("admin", {
-            url : "/admin",
-            abstract:true,
-            templateUrl : "templates/main.html",
-            data : {"roles" : "admin"}
+
+        .state("userManager", {
+            url : "/userManager",
+            templateUrl : "templates/admin/userManager.html",
+            controller : "userManagerCtrl"
         })
-        .state("admin.chance", {
-            url : "/chance",
-            parent:"admin",
+		.state("/kota", {
+            url : "/kota",
+            templateUrl : "templates/channelmanager/kota.html",
+            controller : "kotaCtrl"
+        })
+        .state("/admin/chance", {
+            url : "/admin/chance",
             templateUrl : "templates/admin/chance.html",
-            controller : "chanceCtrl",
+            controller : "chanceCtrl"
         })
-        .state("admin.chance.add", {
-            url : "/chance/add",
-            parent:"admin",
+        .state("/admin/chance/add", {
+            url : "/admin/chance/add",
             templateUrl : "templates/admin/addChance.html",
             controller : "addChanceCtrl"
         })
-        .state("admin.chance.edit", {
-            url : "/chance/edit/:idchance",
-            parent:"admin",
+        .state("/admin/chance/edit", {
+            url : "/admin/chance/edit/:idchance",
             templateUrl : "templates/admin/editChance.html",
             controller : "editChanceCtrl"
         })
-        .state("admin.promo", {
-            url : "/promo",
+        .state("/admin/promo", {
+            url : "/admin/promo",
             templateUrl : "templates/admin/promo.html",
             controller : "promoAdminCtrl"
         })
-        .state("admin.promo.edit", {
-            url : "/promo/edit/:idpromo",
-            parent:"admin",
+        .state("/admin/promo/edit", {
+            url : "/admin/promo/edit/:idpromo",
             templateUrl : "templates/admin/editPromo.html",
             controller : "editPromoAdminCtrl"
         })
-        .state("admin.promo.add", {
-            url : "/promo/add",
-            parent:"admin",
+        .state("/admin/promo/add", {
+            url : "/admin/promo/add",
             templateUrl : "templates/admin/addPromo.html",
             controller : "addPromoAdminCtrl"
         })
-        .state("admin.event",{
-            url : "/event",
+        .state("/admin/event",{
+            url : "/admin/event",
             templateUrl : "templates/admin/event.html",
             controller : "eventCtrl"
         })
 }]);
 
-main.run(["$rootScope","$window","$cookies","$state", function($rootScope, $window, $cookies,$state){
-    $rootScope.$on('$locationChangeSuccess', function(e, newURL, OldURL){
-
-    });
-
-    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-
-        var role = toState.data.roles;
-        var userInfo = $cookies.getObject("userInfo");
-        if(role != userInfo.level){
-            event.preventDefault();
-            alert("You not have access to this app");
-            $state.go(fromState);
-
-        }
-        //console.log(userInfo);
+main.run(["$rootScope","$window", function($rootScope, $window){
+    $rootScope.$on('$locationChangeSuccess', function(e, newURL, OldURL){     
+        // if (newURL != OldURL){
+        //     e.preventDefault();
+        //     $window.location.reload();
+        // }
+        // $route.reload();
     });
 }]);
 
+main.constant("baseUrl", "http://localhost/cafe/cafeWebApi/index.php");
+main.constant("website", "http://localhost/cafe");
 

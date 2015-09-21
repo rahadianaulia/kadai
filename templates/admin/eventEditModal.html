@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Tambah Event
+    </div>
+
+    <div class="panel-body" collapse="isCollapsed">
+        <form class="form-horizontal adminex-form" ng-submit="simpan(event)">
+
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Nama Event</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="event.nama_event" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="event.deskripsi" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Tgl. Berkahir</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" date-type="string" model-date-format="yyyyMMdd" autoclose="true"  date-format="dd MMM yyyy" ng-model="event.akhir_event" name="date" bs-datepicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Bonus Point</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="event.jumlah_point" required>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Simpan</button>
+            <button class="btn btn-default" type="reset" ng-click="cancel()">Cancel</button>
+
+        </form>
+    </div>
+</div>

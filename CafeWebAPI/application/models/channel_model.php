@@ -2,9 +2,9 @@
 
 class Channel_model extends CI_Model
 {
-    var $id;
-    var $namaChannel;
-    var $idKota;
+    var $id_channel;
+    var $nama_channel;
+    var $id_kota;
     var $deskripsi;
     var $user;
     var $password;
@@ -43,11 +43,21 @@ promo_channel.pict, promo_channel.content from promo_channel join channel on pro
 
     function getChanelById()
     {
-        $que = "select * from channel left join kota using (id_kota) where id_channel = '$this->id'";
+        $que = "select * from channel left join kota using (id_kota) where id_channel = '$this->id_channel'";
         $query = $this->db->query($que);
         return $query->result();
     }
 
+    function updateChannel(){
+        $this->db->where("id_channel", $this->id_channel);
+        $this->db->update("channel", $this);
+        return $this->db->affected_rows();
+    }
+    function deleteChannel(){
+        $this->db->where("id_channel", $this->id_channel);
+        $this->db->delete("channel");
+        return $this->db->affected_rows();
+    }
     function addCity($namaKota)
     {
         $que = "insert into kota values(null, '$namaKota')";

@@ -16,7 +16,7 @@
 
         getDataUsers();
         $scope.detail = function(username){
-            $state.go("usermanagerdetail",{username:username});
+            $state.go("main.usermanagerdetail",{username:username});
         };
     }]);
 }());

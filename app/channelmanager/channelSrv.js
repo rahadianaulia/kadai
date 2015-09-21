@@ -1,10 +1,9 @@
-(function(){
+(function () {
     var app = angular.module("mainApp");
-    app.factory("channelSrv",["$http","$q", "baseUrl",function($http, $q, baseUrl){
-        var response=[];
+    app.factory("channelSrv", ["$http", "$q", "baseUrl", function ($http, $q, baseUrl) {
         var listChannel = [];
         var channel = [];
-        var trxRequest = function(methodeParams, url, httpVerb){
+        var trxRequest = function (methodeParams, url, httpVerb) {
             var deferred = $q.defer();
             $http({
                 url: url,
@@ -12,24 +11,24 @@
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 data: methodeParams
             })
-                .then(function (result){
-                    console.log(result.data);
-                    angular.copy(result.data, response);
-                    deferred.resolve(methodeParams);
+                .then(function (result) {
+                    //angular.copy(result.data, response);
+                    //console.log(result);
+                    deferred.resolve(result);
                 }, function (error) {
 
                     deferred.reject(methodeParams);
                 });
             return deferred.promise;
         };
-        var getRequest = function( url){
+        var getRequest = function (url) {
             var deferred = $q.defer();
             $http({
                 url: url,
                 method: "GET",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
             })
-                .then(function (result){
+                .then(function (result) {
                     angular.copy(result.data, listChannel);
                     deferred.resolve();
                 }, function (error) {
@@ -41,19 +40,19 @@
         var getChannels = function () {
             return getRequest(baseUrl + "/api/channel/getchannel");
         };
-        var getChannelById = function(idChannel){
+        var getChannelById = function (idChannel) {
             var deferred = $q.defer();
             $http({
                 url: baseUrl + "/api/channel/getChannelById?idchannel=" + idChannel,
                 method: "GET",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
             })
-                .then(function (result){
-                    var obj =[];
+                .then(function (result) {
+                    var obj = [];
                     angular.copy(result.data, obj);
                     channel.id_channel = obj[0].id_channel;
                     channel.nama_channel = obj[0].nama_channel;
-                    channel.kota = {"id_kota" : obj[0].id_kota, "nama_kota" : obj[0].nama_kota};
+                    channel.kota = {"id_kota": obj[0].id_kota, "nama_kota": obj[0].nama_kota};
                     channel.deskripsi = obj[0].deskripsi;
                     channel.user = obj[0].user;
                     channel.password = obj[0].password;
@@ -63,36 +62,38 @@
                     channel.logo = obj[0].logo;
 
                     deferred.resolve();
-                },function (error) {
+                }, function (error) {
                     deferred.reject(error);
                 });
             return deferred.promise;
 
         }
-        var editChannel = function(params){
+        var editChannel = function (params) {
             return trxRequest(params, baseUrl + "/api/channel/updateChannel", "PUT")
         }
 
-        var addChannel = function(params){
+        var addChannel = function (params) {
             return trxRequest(params, baseUrl + "/api/channel/addChannel", "POST")
         }
+        var deleteChannel = function (params) {
+            return trxRequest(params, baseUrl + "/api/channel/deleteChannel", "delete");
+        }
 
-        var objChannel = function(){
+        var objChannel = function () {
             return channel;
         };
-        var listObjChannel = function(){
+        var listObjChannel = function () {
             return listChannel;
         }
 
         return {
-
-            response : response,
-            getChannel : getChannels,
-            addChannel :addChannel,
-            getChannelById : getChannelById,
-            objChannel:objChannel,
-            listObjChannel:listObjChannel,
-            editChannel : editChannel
+            getChannel: getChannels,
+            addChannel: addChannel,
+            getChannelById: getChannelById,
+            objChannel: objChannel,
+            listObjChannel: listObjChannel,
+            editChannel: editChannel,
+            deleteChannel:deleteChannel
         }
 
     }]);

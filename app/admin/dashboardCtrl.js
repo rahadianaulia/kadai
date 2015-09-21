@@ -39,5 +39,11 @@
             };
             $scope.formats = ['dd MMMM yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
             $scope.format = $scope.formats[0];
+            $scope.saveConfig = function(){
+                window.localStorage.setItem("user", "karambiacukia");
+                $scope.user= window.localStorage.getItem("user");
+            }
+
+
         }])
 }());

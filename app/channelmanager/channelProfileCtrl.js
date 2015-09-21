@@ -1,8 +1,8 @@
 (function () {
     var app = angular.module("mainApp");
     app.controller("channelProfileCtrl", ["$scope", "$stateParams", "channelSrv", "website",
-        "Upload", "baseUrl", "optKota","channel",
-        function ($scope, $stateParams, channelSrv, website, Upload, baseUrl, optKota, channel) {
+        "Upload", "baseUrl", "optKota","channel","toaster",
+        function ($scope, $stateParams, channelSrv, website, Upload, baseUrl, optKota, channel,toaster) {
             $scope.kotas = optKota;
             $scope.objChannel= channel;
             var save = function (obj) {
@@ -19,7 +19,12 @@
                 "email" : obj.email,
                 "logo" : obj.logo
                 };
-                channelSrv.editChannel(data).then(function () {
+                channelSrv.editChannel(data).then(function (result) {
+                    if(result.status=="200"){
+                        toaster.pop("succes", "Success", "Data telah tersimpan");
+                    }else{
+                        toaster.pop("error", "Fail", "Event gagal dihapus!");
+                    }
                 }, function () {
                 });
             };

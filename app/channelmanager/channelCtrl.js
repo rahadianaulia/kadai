@@ -1,6 +1,7 @@
 (function () {
     angular.module('mainApp')
-        .controller('channelCtrl', function ($scope, $http, baseUrl, website, channelSrv, $state) {
+        .controller('channelCtrl', ["$scope", "$http", "baseUrl", "website", "channelSrv", "$state","toaster",
+            function ($scope, $http, baseUrl, website, channelSrv, $state, toaster) {
             //initial
             $scope.channelFact = channelSrv;
             $scope.website = website;
@@ -11,13 +12,27 @@
                     $scope.listChannel = channelSrv.listObjChannel();
                 }, function(){});
             };
+
             getChannels();
 
 
             $scope.detail = function(idChannel){
-                //$state.go("profile",{'idChannel': idChannel},{reload: true});
-                $state.transitionTo("channelmanager.channel.detail",{'idChannel': idChannel},{reload: true, notify:true});
-                //alert(idChannel);
-            };
-        })
+                $state.transitionTo("main.channelmanager.detail",{'idChannel': idChannel});
+            }
+
+            $scope.delete = function(obj){
+                //console.log(obj);
+                channelSrv.deleteChannel(obj).then(
+                    function(result){
+
+                        if(result.status=="200"){
+                            toaster.pop("succes", "Success", "Data telah dihapus");
+                            getChannels();
+                        }else{
+                            toaster.pop("error", "Fail", "Event gagal dihapus!");
+                        }
+                    }, function(error){}
+                )
+            }
+        }])
 }());

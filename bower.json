@@ -16,6 +16,7 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-bootstrap": "~0.13.3",
+    "angular-cookies": "~1.4.6",
     "angular-strap": "~2.3.2",
     "angular-ui-router": "ui-router#~0.2.15",
     "angular-wysiwyg": "~1.2.4",
