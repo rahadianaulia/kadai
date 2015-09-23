@@ -7,7 +7,7 @@
 <div class="wrapper">
 	<div>        
     	<label class="control-label">Channel:</label>
-        <select class="input-sm" ng-options="channel as channel.nama_channel for channel in channels track by channel.id_channel" ng-model="channel" ng-change="">
+        <select class="input-sm" ng-options="channel as channel.nama_channel for channel in channels track by channel.id_channel" ng-model="channel" ng-change="promoByChannel(channel.id_channel)">
         	<option value="">Semua Channel</option>
         </select>
     </div><br>
@@ -38,7 +38,7 @@
 						<td>{{item.tgl_upload}}</td>
 						<td>{{item.awal_promo}}</td>
 						<td>{{item.akhir_promo}}</td>
-						<td></td>
+						<td><i class="btn btn-xs btn-warning" ng-click="viewDescription(item.short_desc, item.content)">View Description</i></td>
 					</tr>
 				</tbody>
 			</table>

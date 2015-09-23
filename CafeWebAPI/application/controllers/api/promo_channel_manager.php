@@ -30,5 +30,15 @@ class Promo_channel_manager extends REST_Controller
         }
 	}
 	
+	function promoByChannel_get(){
+		$idchannel = $this->get("idchannel");
+		$data = $this->promo_channelmanager_model->promoByChannel($idchannel);
+		if($data){
+            $this->response($data,200);
+        }else{
+            $this->response(null,404);
+        }
+	}
+	
 }
 ?>

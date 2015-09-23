@@ -1,0 +1,18 @@
+<!--body wrapper start-->
+<!-- <div class="modal-body"> -->
+<div class="panel panel-primary" >
+		<div class="panel-heading">
+			Description
+		</div>
+		
+		<div class="panel-body" collapse="isCollapsed">
+			<tabset>
+                <tab heading="Short Description">{{shortDesc}}</tab>
+                <tab heading="Long Description"><div ng-bind-html="longDesc"></div></tab>
+            </tabset>
+		</div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+        </div>
+</div> 
+<!-- </div> -->
