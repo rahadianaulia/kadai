@@ -52,6 +52,11 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/channelmanager/promo.html",
             controller : "promoChannelManagerCtrl"
         })
+        .state("channelmanager.event", {
+            url : "/event",
+            templateUrl : "templates/channelmanager/eventChannelManager.html",
+            controller : "eventChannelManagerCtrl"
+        })
         .state("channelmanager.channel.add", {
             url: "/channel/add",
             parent:"channelmanager",
