@@ -1,5 +1,5 @@
 var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","ui.bootstrap","toaster","ngFileUpload",
-    "mgcrea.ngStrap.datepicker"]);
+    "mgcrea.ngStrap.datepicker","ngCookies"]);
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
