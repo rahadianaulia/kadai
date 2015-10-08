@@ -8,6 +8,11 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
         })
+        .state("login", {
+            url : "/login",
+            templateUrl : "templates/login.html",
+            controller : "loginCtrl"
+        })
         .state("usermanager",{
             url : "/usermanager",
             templateUrl :"templates/admin/userManager.html",
