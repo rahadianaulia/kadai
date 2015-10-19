@@ -18,12 +18,12 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/login.html",
             controller : "loginCtrl"
         })
-        .state("usermanager",{
+        .state("main.usermanager",{
             url : "/usermanager",
             templateUrl :"templates/admin/userManager.html",
             controller : "usermanagerCtrl"
         })
-        .state("usermanagerdetail",{
+        .state("main.usermanagerdetail",{
             url : "/usermanager/:username",
             templateUrl :"templates/admin/userManagerDetail.html",
             controller : "usermanagerDetailCtrl",
