@@ -47,7 +47,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
                 abstract : true,
                 template : "<ui-view/>"
         })
-        .state("channelmanager.kota", {
+        .state("main.channelmanager.kota", {
             url: "/kota",
             templateUrl: "templates/channelmanager/kota.html",
             controller: "kotaCtrl"
