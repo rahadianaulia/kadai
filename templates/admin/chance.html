@@ -5,7 +5,7 @@
 <!-- page heading end-->
 <!--body wrapper start-->
 <div class="wrapper">
-    <div><a class="btn btn-success" type="button" href="#/admin/chance/add">Tambah Chance</a></div><br>
+    <div><a class="btn btn-success" type="button" href="#/main/admin/chance/add">Tambah Chance</a></div><br>
     <div class="panel panel-default" >
         <div class="panel-heading">
             Daftar Lucky Chance
@@ -38,7 +38,7 @@
                         <span class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="User yang dapat" ng-click="chance.jml_chance==0 || viewDetail(chance.id_chance)"><i class="fa fa-user"></i> {{chance.jml_chance}}</span>
                         <span class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="Total user yang mencoba" ><i class="fa fa-users"></i> {{chance.total_user}}</span>
                     </td>
-                    <td><a class="btn btn-xs btn-warning" ng-href="#/admin/chance/edit/{{chance.id_chance}}">Edit</a>
+                    <td><a class="btn btn-xs btn-warning" ng-href="#/main/admin/chance/edit/{{chance.id_chance}}">Edit</a>
                         <i class="btn btn-xs btn-danger" ng-click="deleteChance(chance)">Delete</i></td>
                 </tr>
                 </tbody>

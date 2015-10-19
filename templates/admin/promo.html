@@ -5,13 +5,13 @@
 <!-- page heading end-->
 <!--body wrapper start-->
 <div class="wrapper">
-	<div><a class="btn btn-success" type="button" ui-sref="/admin/promo/add">Tambah Promo</a></div><br>
+	<div><a class="btn btn-success" type="button" ui-sref="main/admin/promo/add">Tambah Promo</a></div><br>
 	<div class="panel panel-default" ng-repeat="item in items">
         <div class="panel-heading">
             {{item.nama_promo}}
 			<span class="tools pull-right">
 				<a ng-href="javascript:;" ng-click="deletePromo(item)" class="fa fa-trash-o"></a>
-				<a ng-href="#/admin/promo/edit/{{item.id_promo}}" class="fa fa-pencil"></a>
+				<a ng-href="#/main/admin/promo/edit/{{item.id_promo}}" class="fa fa-pencil"></a>
 				<a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
 			</span>
         </div>

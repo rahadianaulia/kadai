@@ -121,38 +121,44 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             templateUrl : "templates/channelmanager/kota.html",
             controller : "kotaCtrl"
         })
-        .state("/admin/chance", {
+        .state("/main/admin/chance", {
             url : "/admin/chance",
+            parent:"main",
             templateUrl : "templates/admin/chance.html",
             controller : "chanceCtrl"
         })
-        .state("/admin/chance/add", {
+        .state("main/admin/chance/add", {
             url : "/admin/chance/add",
+            parent:"main",
             templateUrl : "templates/admin/addChance.html",
             controller : "addChanceCtrl"
         })
-        .state("/admin/chance/edit", {
+        .state("main/admin/chance/edit", {
             url : "/admin/chance/edit/:idchance",
             templateUrl : "templates/admin/editChance.html",
             controller : "editChanceCtrl"
         })
-        .state("/admin/promo", {
+        .state("main/admin/promo", {
             url : "/admin/promo",
+            parent:"main",
             templateUrl : "templates/admin/promo.html",
             controller : "promoAdminCtrl"
         })
-        .state("/admin/promo/edit", {
+        .state("main/admin/promo/edit", {
             url : "/admin/promo/edit/:idpromo",
+            parent: "main",
             templateUrl : "templates/admin/editPromo.html",
             controller : "editPromoAdminCtrl"
         })
-        .state("/admin/promo/add", {
+        .state("main/admin/promo/add", {
             url : "/admin/promo/add",
+            parent: "main",
             templateUrl : "templates/admin/addPromo.html",
             controller : "addPromoAdminCtrl"
         })
-        .state("/admin/event",{
+        .state("main/admin/event",{
             url : "/admin/event",
+            parent: "main",
             templateUrl : "templates/admin/event.html",
             controller : "eventCtrl"
         })
