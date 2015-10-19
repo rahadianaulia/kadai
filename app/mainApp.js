@@ -1,7 +1,7 @@
 var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","ui.bootstrap","toaster","ngFileUpload",
     "mgcrea.ngStrap.datepicker","ngCookies"]);
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise("/dashboard");
+    $urlRouterProvider.otherwise("main/dashboard");
     $stateProvider
         .state("main",{
             url:"/main",
