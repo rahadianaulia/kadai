@@ -3,7 +3,12 @@ var main = angular.module("mainApp", ["ui.router","myDirective","textAngular","u
 main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
-        .state("/dashboard", {
+        .state("main",{
+            url:"/main",
+            abstract: true,
+            templateUrl : "templates/main.html"
+        })
+        .state("main.dashboard", {
             url : "/dashboard",
             templateUrl : "templates/dashboard.html",
             controller : "dashboardCtrl"
