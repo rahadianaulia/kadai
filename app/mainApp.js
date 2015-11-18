@@ -42,35 +42,38 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             }
         })
 
-        .state("channelmanager",{
-                url:"/channelmanager",
-                abstract : true,
-                template : "<ui-view/>"
-        })
-        .state("main.channelmanager.kota", {
-            url: "/kota",
+        // .state("channelmanager",{
+        //         url:"/channelmanager",
+        //         abstract : true,
+        //         template : "<ui-view/>"
+        // })
+        .state("/main/channelmanager/kota", {
+            url: "/channelmanager/kota",
             parent:"main",
             templateUrl: "templates/channelmanager/kota.html",
             controller: "kotaCtrl"
         })
-        .state("channelmanager.channel", {
-            url : "/channel",
+        .state("/main/channelmanager/channel", {
+            url : "/channelmanager/channel",
+            parent: "main",
             templateUrl : "templates/channelmanager/channel.html",
             controller : "channelCtrl"
         })
-        .state("channelmanager.promo", {
-            url : "/promo",
+        .state("/main/channelmanager/promo", {
+            url : "/channelmanager/promo",
+            parent: "main",
             templateUrl : "templates/channelmanager/promo.html",
             controller : "promoChannelManagerCtrl"
         })
-        .state("channelmanager.event", {
-            url : "/event",
+        .state("/main/channelmanager/event", {
+            url : "/channelmanager/event",
+            parent: "main",
             templateUrl : "templates/channelmanager/eventChannelManager.html",
             controller : "eventChannelManagerCtrl"
         })
-        .state("channelmanager.channel.add", {
-            url: "/channel/add",
-            parent:"channelmanager",
+        .state("/main/channelmanager/channel/add", {
+            url: "/channelmanager/channel/add",
+            parent:"main",
             templateUrl: "templates/channelmanager/addChannel2.html",
             controller: "addChannelCtrl",
             resolve: {
