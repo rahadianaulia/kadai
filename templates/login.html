@@ -23,14 +23,14 @@
 
 <div class="container">
 
-    <form class="form-signin" ng-submit="login()">
+    <form class="form-signin" ng-submit="login(user)">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">Sign In</h1>
             <img src="images/login-logo.png" alt=""/>
         </div>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" ng-model="username" autofocus>
-            <input type="password" class="form-control" placeholder="Password" ng-model="pass">
+            <input type="text" class="form-control" placeholder="User ID" ng-model="user.username" autofocus>
+            <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
 
             <button class="btn btn-lg btn-login btn-block" type="submit">
                 <i class="fa fa-check"></i>
