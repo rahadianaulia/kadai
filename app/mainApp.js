@@ -21,7 +21,10 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
         .state("main.usermanager",{
             url : "/usermanager",
             templateUrl :"templates/admin/userManager.html",
-            controller : "usermanagerCtrl"
+            controller : "usermanagerCtrl",
+            data : {
+                "roles" : "admin"
+            }
         })
         .state("main.usermanagerdetail",{
             url : "/usermanager/:username",
@@ -167,13 +170,26 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
         })
 }]);
 
-main.run(["$rootScope","$window", function($rootScope, $window){
+main.run(["$rootScope","$window","$cookies","$state", function($rootScope, $window, $cookies, $state){
     $rootScope.$on('$locationChangeSuccess', function(e, newURL, OldURL){     
         // if (newURL != OldURL){
         //     e.preventDefault();
         //     $window.location.reload();
         // }
         // $route.reload();
+    });
+
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+        var role = toState.data;
+        var userInfo = $cookies.getObject("userInfo");
+        if (userInfo != null){
+            console.log(userInfo);
+            if (role != userInfo.level){
+                // event.preventDefault();
+                alert("you not have access to this app");
+                $state.go("login");
+            }
+        }
     });
 }]);
 

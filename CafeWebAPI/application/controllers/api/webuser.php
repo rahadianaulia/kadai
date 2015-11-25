@@ -12,6 +12,7 @@ class webuser extends REST_Controller
     {
         parent::__construct();
         $this->load->model("webuser_model", "webuser");
+		$this->load->library('session');
     }
 
     function login_post()
