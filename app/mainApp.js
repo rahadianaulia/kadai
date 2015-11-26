@@ -181,6 +181,7 @@ main.run(["$rootScope","$window","$cookies","$state", function($rootScope, $wind
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
         var role = toState.data;
+        console.log(role);
         var userInfo = $cookies.getObject("userInfo");
         if (userInfo != null){
             console.log(userInfo);
