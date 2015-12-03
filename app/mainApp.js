@@ -170,7 +170,7 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
         })
 }]);
 
-main.run(["$rootScope","$window","$cookies","$state", function($rootScope, $window, $cookies, $state){
+main.run(["$rootScope","$window","$cookies","$state", "$location", function($rootScope, $window, $cookies, $state, $location){
     $rootScope.$on('$locationChangeSuccess', function(e, newURL, OldURL){     
         // if (newURL != OldURL){
         //     e.preventDefault();
@@ -179,19 +179,36 @@ main.run(["$rootScope","$window","$cookies","$state", function($rootScope, $wind
         // $route.reload();
     });
 
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-        var role = toState.data;
-        console.log(role);
-        var userInfo = $cookies.getObject("userInfo");
-        if (userInfo != null){
-            console.log(userInfo);
-            if (role != userInfo.level){
-                // event.preventDefault();
-                alert("you not have access to this app");
-                $state.go("login");
-            }
+    // $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+    //     var role = toState.data;
+    //     console.log(role);
+    //     var userInfo = $cookies.getObject("userInfo");
+    //     if (userInfo != null){
+    //         console.log(userInfo);
+    //         if (role != userInfo.level){
+    //             // event.preventDefault();
+    //             alert("you not have access to this app");
+    //             $state.go("login");
+    //         }
+    //     }
+    // });
+
+    // $rootScope.$on('$locationChangeStart', function (event, next, current, toState){
+    //     var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+    //     var loggedIn = $cookies.getObject("userInfo");
+    //     if (restrictedPage && !loggedIn){
+    //         $state.go("login");
+    //     }
+    // });
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        var loggedIn = $cookies.getObject("userInfo");
+        if (restrictedPage && !loggedIn){
+            event.preventDefault();
+            $state.go("login");
         }
-    });
+      });
 }]);
 
 main.constant("baseUrl", "http://localhost/cafe/cafeWebApi/index.php");

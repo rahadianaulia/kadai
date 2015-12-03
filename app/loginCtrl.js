@@ -6,8 +6,10 @@
                     function (hasil) {
                         // console.log(hasil.data[0]);
                         if (hasil.data.length > 0){
-                            $state.go("main.dashboard");
+                            $state.go("main.dashboard", {}, { reload : true});
                             $cookies.putObject("userInfo",hasil.data[0]);
+                            // console.log(hasil.data[0].level);
+                            $scope.setRoles(hasil.data[0].level);
                         }
                     },
                     function (err) {
