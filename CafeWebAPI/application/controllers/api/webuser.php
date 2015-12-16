@@ -6,7 +6,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 class webuser extends REST_Controller
 {
-    var $arrdata = array("id", "login", "username", "email", "level");
+    var $arrdata = array("id", "login", "username", "email", "level", "id_channel");
 
     function __construct()
     {
@@ -32,6 +32,7 @@ class webuser extends REST_Controller
                 "username" => $data[0]->username,
                 "email" => $data[0]->email,
                 "level" => $data[0]->level,
+				"id_channel" => $data[0]->id_channel
             );
             $this->session->set_userdata($sesInfo);
             $this->response($data, 200);

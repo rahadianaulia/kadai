@@ -1,5 +1,8 @@
 var app = angular.module("mainApp");
 app.controller("mainCtrl", ["$scope","$state", "$location", "$cookies", "loginSrv", function($scope, $state, $location, $cookies, loginSrv){
+    //initial
+    $scope.roles = getRoles();
+    $scope.idChannel = getIDChannel();
 
 $scope.test = function(){
     //console.log($state.current.name);
@@ -30,12 +33,23 @@ $scope.test = function(){
     	} else {
     		return null;
     	}
-    }
+    };
 
-    $scope.roles = getRoles();
+    function getIDChannel(){
+        var roles = $cookies.getObject("userInfo");
+        if (roles != null){
+            return roles.id_channel;
+        } else {
+            return null;
+        }
+    };
 
     $scope.setRoles = function(level){
         $scope.roles = level;
+    };
+
+    $scope.setIDChannel = function(idchannel){
+        $scope.idChannel = idchannel;
     };
 
 }]);

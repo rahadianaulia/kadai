@@ -10,6 +10,7 @@
                             $cookies.putObject("userInfo",hasil.data[0]);
                             // console.log(hasil.data[0].level);
                             $scope.setRoles(hasil.data[0].level);
+                            $scope.setIDChannel(hasil.data[0].id_channel);
                         }
                     },
                     function (err) {

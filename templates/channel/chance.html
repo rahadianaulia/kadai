@@ -1,0 +1,48 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>Lucky Chance</h3>
+</div>
+<!-- page heading end-->
+<!--body wrapper start-->
+<div class="wrapper">
+    <div><a class="btn btn-success" type="button" href="#/main/channel/chance/add">Tambah Chance</a></div><br>
+    <div class="panel panel-default" >
+        <div class="panel-heading">
+            Daftar Lucky Chance
+            <span class="tools pull-right">
+                <a href="javascript:;" ng-click="isCollapsed = !isCollapsed" class="fa fa-chevron-down"></a>
+            </span>
+        </div>
+        
+        <div class="panel-body" collapse="isCollapsed">
+            <table class="table  table-hover general-table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Bonus</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Last Bonuses</th>
+                    <th>Activity</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="chance in chances">
+                    <td>{{chance.title}}</td>
+                    <td><img width="50px" ng-src="chance/{{chance.pict}}" class="img-thumbnail"> {{chance.bonus}}</td>
+                    <td>{{chance.start_date}}</td>
+                    <td>{{chance.end_date}}</td>
+                    <td>{{chance.total_bonus}}</td>
+                    <td>
+                        <span class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="User yang dapat" ng-click="chance.jml_chance==0 || viewDetail(chance.id_chance)"><i class="fa fa-user"></i> {{chance.jml_chance}}</span>
+                        <span class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="Total user yang mencoba" ><i class="fa fa-users"></i> {{chance.total_user}}</span>
+                    </td>
+                    <td><a class="btn btn-xs btn-warning" ng-href="#/main/channel/chance/edit/{{chance.id_chance}}">Edit</a>
+                        <i class="btn btn-xs btn-danger" ng-click="deleteChance(chance)">Delete</i></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
