@@ -1,7 +1,24 @@
 (function () {
     angular.module('mainApp')
-        .controller('dashboardCtrl', ["$scope", "Upload", "baseUrl", function ($scope, Upload, baseUrl) {
+        .controller('dashboardCtrl', ["$scope", "Upload", "baseUrl", "$http", function ($scope, Upload, baseUrl, $http) {
             $scope.judul = "Dashboard";
+
+            var getTotalUser = function() {
+                $http.get(baseUrl + "/api/dashboard/totaluser").then(
+                function(result){
+                    $scope.totalUser = result.data[0].total_user;
+                },function(error){
+                });
+            }; getTotalUser();
+
+            var getTotalChannel = function(){
+                $http.get(baseUrl + "/api/dashboard/totalchannel").then(
+                    function(result){
+                        $scope.totalChannel = result.data[0].total_channel;
+                    }, function(error){
+
+                    });
+            }; getTotalChannel();
 
             $scope.view = function (tanggal) {
                 console.log(tanggal.getDate() + '-' + tanggal.getMonth() + '-' + tanggal.getFullYear());

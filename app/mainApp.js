@@ -179,7 +179,10 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             url : "/admin/promo/edit/:idpromo",
             parent: "main",
             templateUrl : "templates/admin/editPromo.html",
-            controller : "editPromoAdminCtrl"
+            controller : "editPromoAdminCtrl",
+            data : {
+                "roles" : "admin"
+            }
         })
         .state("main/admin/promo/add", {
             url : "/admin/promo/add",
@@ -231,6 +234,42 @@ main.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $u
             parent:"main",
             templateUrl : "templates/channel/promo.html",
             controller : "promoChannelCtrl",
+            data : {
+                "roles" : "mitra"
+            }
+        })
+        .state("main/channel/promo/add", {
+            url : "/channel/promo/add",
+            parent: "main",
+            templateUrl : "templates/channel/addPromo.html",
+            controller : "addPromoChannelCtrl",
+            data : {
+                "roles" : "mitra"
+            }
+        })
+        .state("main/channel/promo/edit", {
+            url : "/channel/promo/edit/:idpromo",
+            parent: "main",
+            templateUrl : "templates/channel/editPromo.html",
+            controller : "editPromoChannelCtrl",
+            data : {
+                "roles" : "mitra"
+            }
+        })
+        .state("main/channel/event",{
+            url : "/channel/event",
+            parent: "main",
+            templateUrl : "templates/channel/event.html",
+            controller : "eventChannelCtrl",
+            data : {
+                "roles" : "mitra"
+            }
+        })
+        .state("main/channel/event/add",{
+            url : "/channel/event/add",
+            parent: "main",
+            templateUrl : "templates/channel/addEvent.html",
+            controller : "eventChannelAddCtrl",
             data : {
                 "roles" : "mitra"
             }

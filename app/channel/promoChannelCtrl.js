@@ -6,7 +6,7 @@
 
     	//get all promo
     	var getPromo = function(){
-    		$http.get(baseUrl + "/api/promo_admin/listpromo")
+    		$http.get(baseUrl + "/api/promo_channel/listpromo/idchannel/" + $scope.idChannel)
     		.then(function(result){
     			$scope.items = result.data;
     		}, function(error){
@@ -32,7 +32,7 @@
 
             modalDialog.result.then(function(hasil){
                 if (hasil == "ok"){
-                    $http.get(baseUrl + "/api/promo_admin/deletepromo/idpromo/" + data.id_promo).then(
+                    $http.get(baseUrl + "/api/promo_channel/deletepromo/idpromo/" + data.id_promo + "/idchannel/" + $scope.idChannel).then(
                     function(result){
                         toaster.pop("succes", "Success", "Promo berhasil di hapus!");
                         getPromo();

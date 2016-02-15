@@ -12,16 +12,49 @@ class event extends REST_Controller{
         $data = $this->event->getEvents();
         $this->response($data, 200);
     }
+	
+	function getEventChannel_get(){
+		$idchannel = $this->get("idchannel");
+		$data = $this->event->getEventChannel($idchannel);
+		if($data){
+            $this->response($data,200);
+        }else{
+            $this->response(null,404);
+        }
+	}
 
     function addEvent_post(){
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata);
-        $this->event->nama_event = $request->nama_event;
-        $this->event->deskripsi = $request->deskripsi;
-        $this->event->akhir_event = $request->akhir_event;
-        $this->event->jumlah_point = $request->jumlah_point;
-
-        $data = $this->event->addEvent();
+        // $this->event->nama_event = $request->nama_event;
+        // $this->event->deskripsi = $request->deskripsi;
+        // $this->event->akhir_event = $request->akhir_event;
+        // $this->event->jumlah_point = $request->jumlah_point;
+		$nama_event = $request->nama_event;
+		$deskripsi = $request->deskripsi;
+		$akhir_event = $request->akhir_event;
+		$jumlah_point = $request->jumlah_point;
+		$jumlah_coupon = $request->jumlah_coupon;
+        $data = $this->event->addEvent($nama_event, $deskripsi, $akhir_event, $jumlah_point, $jumlah_coupon);
+        $hasil = array();
+        if($data>0){
+            $hasil[0]["status"] = 200;
+        }else{
+            $hasil[0]["status"] = 404;
+        }
+        $this->response($hasil);
+    }
+	
+	function addEventChannel_post(){
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+		$idchannel = $request->idchannel;
+		$nama_event = $request->nama_event;
+		$deskripsi = $request->deskripsi;
+		$akhir_event = $request->akhir_event;
+		$jumlah_point = $request->jumlah_point;
+		$jumlah_coupon = $request->jumlah_coupon;
+        $data = $this->event->addEventChannel($idchannel, $nama_event, $deskripsi, $akhir_event, $jumlah_point, $jumlah_coupon);
         $hasil = array();
         if($data>0){
             $hasil[0]["status"] = 200;

@@ -1,44 +1,97 @@
 <!-- page heading start-->
 <div class="page-heading">
-    <h3>{{judul}}</h3>
+  <h3>{{judul}}</h3>
 </div>
 <!-- page heading end-->
 
 <!--body wrapper start-->
 <div class="wrapper">
-    <button class="btn btn-default" ng-click="test()"> TEST</button>
-
-    <form name="myForm">
-        <img class="button thumbnail-borderless" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" required
-             accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-src="file || 'img/noImageAvailable.jpg'"
-                />
-        <label ng-show="file.$error.minHeight">Gambar terlalu kecil</label>
-        <!--<img ngf-src="file || '../logo_channel/noimage.png'" class="thumbnail-borderless" name="file">-->
-        <button type="submit" ng-click="submit()">submit</button>
-    </form>
-    <input type="date" ng-model="tanggal"><button ng-click="view(tanggal)">view</button>
-
-
-    <!--<input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">-->
-    <!--<my-date-picker class="form-control"  ></my-date-picker>-->
-
-{{selectedDate}}
-   <!--<p class="input-group">-->
-       <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt"-->
-              <!--is-open="status.opened" min-date="minDate" max-date="maxDate" show-weeks ="false"-->
-              <!--ng-required="true" close-text="Close" />-->
-       <!--<span class="input-group-btn">-->
-           <!--<button type="button" class="btn btn-default" ng-click="open($event)">-->
-               <!--<i class="fa fa-calendar"></i>-->
-           <!--</button>-->
-
-       <!--</span>-->
-   <!--</p>-->
-    <div class="form-group">
-        <input type="text" class="form-control" date-type="string" model-date-format="yyyyMMdd" autoclose="true"  date-format="dd MMM yyyy" ng-model="selectedDate" name="date" bs-datepicker>
+  <div class="row state-overview">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <div class="panel purple">
+        <div class="symbol">
+          <i class="fa fa-gavel"></i>
+        </div>
+        <div class="state-value">
+          <div class="value">{{totalUser}}</div>
+          <div class="title">Total User</div>
+        </div>
+      </div>
     </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <div class="panel red">
+        <div class="symbol">
+          <i class="fa fa-tags"></i>
+        </div>
+        <div class="state-value">
+          <div class="value">{{totalChannel}}</div>
+          <div class="title">Total Channel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row state-overview">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <div class="panel blue">
+        <div class="symbol">
+          <i class="fa fa-money"></i>
+        </div>
+        <div class="state-value">
+          <div class="value">22014</div>
+          <div class="title"> Total Revenue</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <div class="panel green">
+        <div class="symbol">
+          <i class="fa fa-eye"></i>
+        </div>
+        <div class="state-value">
+          <div class="value">390</div>
+          <div class="title"> Unique Visitors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <section class="panel">
+              <header class="panel-heading">
+                  Line Chart
+              <span class="tools pull-right">
+                  <a href="javascript:;" class="fa fa-chevron-down"></a>
+                  <a href="javascript:;" class="fa fa-times"></a>
+               </span>
+              </header>
+              <div class="panel-body">
+                  <div id="graph-line"></div>
+              </div>
+          </section>
+      </div>
+  </div>
+  
+
+
+  <!--<input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">-->
+  <!--<my-date-picker class="form-control"  ></my-date-picker>-->
+
+  {{selectedDate}}
+  <!--<p class="input-group">-->
+  <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt"-->
+  <!--is-open="status.opened" min-date="minDate" max-date="maxDate" show-weeks ="false"-->
+  <!--ng-required="true" close-text="Close" />-->
+  <!--<span class="input-group-btn">-->
+  <!--<button type="button" class="btn btn-default" ng-click="open($event)">-->
+  <!--<i class="fa fa-calendar"></i>-->
+  <!--</button>-->
+
+  <!--</span>-->
+  <!--</p>-->
+  <div class="form-group">
+    <input type="text" class="form-control" date-type="string" model-date-format="yyyyMMdd" autoclose="true"  date-format="dd MMM yyyy" ng-model="selectedDate" name="date" bs-datepicker>
+  </div>
 </div>
 <!--body wrapper end-->
-
 
 

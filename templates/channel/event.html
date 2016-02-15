@@ -1,4 +1,4 @@
-a<!-- page heading start-->
+<!-- page heading start-->
 <div class="page-heading">
     <h1>{{judul}}</h1>
 </div>
@@ -6,7 +6,7 @@ a<!-- page heading start-->
 <!--body wrapper start-->
 <div class="wrapper">
     <div>
-        <a class="btn btn-success" type="button" ng-click="addEvent()">Tambah Event</a>
+        <a class="btn btn-success" type="button" ui-sref="main/channel/event/add">Tambah Event</a>
     </div><br>
     <div class="panel panel-default" >
         <div class="panel-heading">
@@ -29,7 +29,7 @@ a<!-- page heading start-->
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="event in events.getEvents()">
+                <tr ng-repeat="event in events">
                     <!--<td><img class="img-thumbnail" width="50px" ng-src="{{website}}/logo_channel/{{channel.logo}}"> {{channel.nama_channel}}</td>-->
                     <td>{{event.nama_event}}</td>
                     <td>{{event.deskripsi}}</td>
